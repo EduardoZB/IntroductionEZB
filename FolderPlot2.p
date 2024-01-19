@@ -1,0 +1,25 @@
+# Script de prueba para multiples graficas de una carpeta
+
+print 'Please type the file extension for the script to read (ex: .txt)'
+xtn = system('read xtn; echo $xtn')
+xtnlen = strlen(xtn)-1
+
+do for [fn in system("ls")] {
+    len=strlen(fn)
+    form=substr(fn,len-xtnlen,len)
+    if (form eq xtn) {
+        set term pngcairo size 900,600 enhanced font 'Vedrana,10'
+
+        data=sprintf("%s",fn)
+        filename=sprintf("%s.png",substr(fn,0,len-4))
+
+
+        set xlabel 'Wavelenght (Å)'
+        set ylabel 'Flux (Lumen)'
+        
+        set title ''.filename.' spectrum'
+        set output filename
+        plot data using 1:2 with line lc rgb 'red' notitle
+        unset output
+    }
+}
