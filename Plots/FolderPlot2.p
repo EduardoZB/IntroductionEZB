@@ -1,8 +1,14 @@
-# Script de prueba para multiples graficas de una carpeta
+""" GNUplot script for plotting several data files into separate images
+    Credit goes to Otto Hanski and Weijun Zhou that posted their ideas 
+    on stackexchange. I just catered it to plotting supernovae spectra."""
+
+# We start by asking the user what data file extension is used in the folder
 
 print 'Please type the file extension for the script to read (ex: .txt)'
 xtn = system('read xtn; echo $xtn')
 xtnlen = strlen(xtn)-1
+
+# Then we start the loop, making shure to plot only the files with the correct extension
 
 do for [fn in system("ls")] {
     len=strlen(fn)
