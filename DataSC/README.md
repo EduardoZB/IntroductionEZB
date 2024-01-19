@@ -1,4 +1,4 @@
-#Data Science with Jupyter Notebook
+# Data Science with Jupyter Notebook
 
 This file is written in Python, uses Pandas, Numpy and Matplotlib libraries and is presented in a Notebook. Here I perform a data analysis to the 2021 accident statistics of Spain.
 
