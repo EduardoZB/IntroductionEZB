@@ -17,14 +17,14 @@ do for [fn in system("ls")] {
         set term pngcairo size 900,600 enhanced font 'Vedrana,10'
 
         data=sprintf("%s",fn)
-        filename=sprintf("%s.png",substr(fn,0,len-4))
+        filename=sprintf(substr(fn,0,len-xtnlen+1))
 
 
         set xlabel 'Wavelenght (Å)'
         set ylabel 'Flux (Lumen)'
         
         set title ''.filename.' spectrum'
-        set output filename
+        set output ''.filename.'.png'
         plot data using 1:2 with line lc rgb 'red' notitle
         unset output
     }
