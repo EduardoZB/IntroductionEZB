@@ -6,8 +6,17 @@ In my [first script](FolderPlot2.p) I show how to do just that: take a folder fu
 
 Credit goes to [Weijun Zhou](https://unix.stackexchange.com/users/259023/weijun-zhou) and [Otto Hanski](https://unix.stackexchange.com/users/356551/otto-hanski) for contrinuting to such a specific [thread on Stackexchange](https://unix.stackexchange.com/questions/515924/plotting-all-files-from-a-directory-in-gnuplot), from which I took most of the code.
 
-Below several spectra con be seen as output of the script, that read all the **.dat** files in it;
+Below several spectra can be seen as output of the script, that read all the **.dat** files in it;
 
-![SN2006gx](SN2006gz_2006-09-28_00-00-00_MDM-2.4_BC-OSU_SUSPECT.d.png "Spectra")
+![SN2006gx28-09](SN2006gz_2006-09-28_00-00-00_MDM-2.4_BC-OSU_SUSPECT.d.png "Spectra")
+
+![SN2006gx7-10](SN2006gz_2006-10-07_00-00-00_MDM-2.4_BC-OSU_SUSPECT.d.png "Spectra")
+
+![SN2006gx17-10](SN2006gz_2006-10-17_00-00-00_MDM-2.4_BC-OSU_SUSPECT.d.png "Spectra")
+
+![SN2006gx7-10](SN2006gz_2006-10-07_00-00-00_MDM-2.4_BC-OSU_SUSPECT.d.png "Spectra")
+
+![SN2006gx20-10](SN2006gz_2006-20-07_00-00-00_MDM-2.4_BC-OSU_SUSPECT.d.png "Spectra")
+
 
 Feel free to use it and improve it!
