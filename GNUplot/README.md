@@ -1,4 +1,4 @@
-# Plots and scripts
+# GNUplot scripts
 
 This is where I'll be posting my plotting scripts. Plotting a graph is probably one of the most repeated tasks in Physics. Knowing how to automate some of the process is crutial in saving some time for more brain-demanding activities.
 
