@@ -9,18 +9,16 @@ This script requires **numpy, osgeo (GDAL), satpy and pyresample** libraries to 
 For monday February 6th starting at at 13:15 UTC
 
 High Resolution Visual (HRV)
-![1315HRV](1315HRV.png "1315")
 
+
+![1315HRV](1315HRV.png "1315")
 
 ![1345HRV](1345HRV.png "1345")
 
-
 ![1415HRV](1415HRV.png "1415")
-
 
 ![1445HRV](1445HRV.png "1445")
 
 ![1515HRV](1515HRV.png "1515")
-
 
 ![1545HRV](1545HRV.png "1545")
