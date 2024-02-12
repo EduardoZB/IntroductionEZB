@@ -12,6 +12,7 @@ from satpy.resample import get_area_def
 import cv2
 import matplotlib.pyplot as plt
 import pandas as pd
+import yaml
 
 ### Select a specific area to display with pyresample
 
