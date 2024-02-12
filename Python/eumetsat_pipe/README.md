@@ -27,4 +27,4 @@ The script will transform the data following the parameter specifications writte
 # Output
 Here I used ffmpeg to create a video for the images obtained on February 9th, from 10 to 16 UTC.
 
-[Video](0902RGBvideo.mp4)
+![Video](0902RGBvideo.mp4 "Feb9timelapse")
