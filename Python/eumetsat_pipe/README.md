@@ -25,6 +25,13 @@ The script will transform the data following the parameter specifications writte
 * Start Time and End Time set the time range for extracting and processing data. If the Start Time is set to **Recent**, the script will automatically get the latest images in a 20-minute range.
 
 # Output
-Here I used ffmpeg to create a video for the images obtained on February 9th, from 10 to 16 UTC.
+Here are some example files using different output types.
 
-![Video](0902RGBvideo.mp4 "Feb9timelapse")
+![MatplotLib](1315HRV.png "Feb6tHRVplt")
+Made with MatplotLib
+
+![cv2](MSG3_1245_HRV.png "Feb8tHRVcv2")
+Made with OpenCv
+
+![tif](MSG3_1245_rgb_eurol.png "Feb9tHRVtif")
+Made with GTiff
