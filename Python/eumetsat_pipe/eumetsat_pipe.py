@@ -226,7 +226,7 @@ for product in products:
                 if df[1]['area_def'].lower() == 'area_def':
                     warea = area_def
                 else:
-                    warea = pr.load_area('/home/z/anaconda3/envs/py38/lib/python3.8/site-packages/satpy/etc/areas.yaml', df[1]['area_def'])                
+                    warea = pr.load_area('~/anaconda3/envs/py38/lib/python3.8/site-packages/satpy/etc/areas.yaml', df[1]['area_def'])                
                 nat2tif(file = ntr, 
                         calibration = df[1]['calibration'],
                         area_def = warea,  
