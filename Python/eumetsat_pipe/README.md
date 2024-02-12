@@ -33,5 +33,5 @@ Made with MatplotLib
 ![cv2](MSG3_1245_HRV.png "Feb8tHRVcv2")
 Made with OpenCv
 
-![tif](MSG3_1245_rgb_eurol.png "Feb9tHRVtif")
-Made with GTiff
+![satpy](MSG3_1245_rgb_eurol.png "Feb9tHRVsatpy")
+Made with SatPy
