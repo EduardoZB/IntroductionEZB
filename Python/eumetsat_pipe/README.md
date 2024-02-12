@@ -9,7 +9,7 @@ The offline version of this script requires **pandas, numpy, osgeo (GDAL), satpy
 The script will transform the data following the parameter specifications written in the eumetsat_recipe.txt file. The current version script will fail if the parameters do not follow some coherence guidelines:
 * Color parameter will only accept **RGB** or **mono** as inputs. If **RGB** is specified, the script will ignore all pyresample and OpenCV parameters (calibration, dtype, radius, epsilon, nodata, out_type, brightness and contrast) and can take composite datasets, but will only show satpy resampled areas.
 * Calibration admits **radiance** or **reflectance** options.
-* Area definition uses satpy, and only works with composite processing at the moment. Available areas are found in satpy's areas.yaml file.
+* Area definition for image projection. Available areas are found in satpy's areas.yaml file. If **mono** is selected, this field can be set to **area_def**, that uses a custom area resampling module in the script.
 * Dataset can be any of the available for the color chosen. For **mono** it takes the specific wavelenght name and for **RGB** it can take any of the composite options. Available options can be checked with satpy's Scene from a Python shell:
 ```
   from satpy import Scene
