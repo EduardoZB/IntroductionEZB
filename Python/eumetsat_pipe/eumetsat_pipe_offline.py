@@ -9,6 +9,7 @@ from satpy.resample import get_area_def
 import cv2
 import matplotlib.pyplot as plt
 import pandas as pd
+import yaml
 
 ### Select a specific area to display with pyresample
 
@@ -31,8 +32,6 @@ area_extent = (llx,lly,urx,ury)
 # defining the area
 area_def = pr.geometry.AreaDefinition(area_id, proj_id, description, proj_dict,
                                       width, height, area_extent)
-print(area_def)
-
 
 
 ### Define the function that converts the .nat file to .tif, .png or .jpg files containing the selected dataset image
@@ -43,6 +42,7 @@ def nat2tif(file, calibration, area_def, dataset, reader, label, dtype, radius,
     scn = Scene(filenames = {reader: [file]})
     filetime = scn.end_time
     if filetime<strtime or filetime>endtime:
+        print('NOT in the specified time range')
         return
     scn.load([dataset])
     # let us extract the longitude and latitude data
@@ -122,8 +122,11 @@ def nat2tif(file, calibration, area_def, dataset, reader, label, dtype, radius,
     # this output plots an image with matplotlib
     elif out_type.lower() == 'plt':
         # add file extension to name
-        outname = os.path.join(outdir, outnamev + '.jpg')
+        outname = os.path.join(outdir, outnamev + 'mpl.png')
         
+        # preparing the data
+        data = np.array(values)
+                
         # save output
         plt.imshow(data)
         plt.gca().set(title=label, xlabel='Longitude', ylabel='Latitude')
@@ -143,6 +146,7 @@ def nat2rgb(file, area, dataset, reader, label, strtime, endtime):
     # get file time
     filetime = scn.end_time
     if filetime<strtime or filetime>endtime:
+        print('NOT in the specified time range')
         return
     nowutc = filetime.strftime('%H%M')
     nowday = filetime.strftime('%d%m')
@@ -169,6 +173,7 @@ elif isinstance(dt.datetime.strptime(df[1]['starttime'],'%d/%m/%Y %H:%M'), dt.da
     endt = dt.datetime.strptime(df[1]['endtime'],'%d/%m/%Y %H:%M')
 else:
     print('Not a valid time interval. Please, write RECENT or a start and finish dates in D/M/Y HH:MM format')
+
     
 # Look for .nat files in working directory and process them according to recipe
 
@@ -179,9 +184,13 @@ for entry in entries:
         print(ntr)
         if df[1]['color'].lower() == 'mono':
             # Here we call the nat2tif funciton for a High-Res monochromatic picture
+            if df[1]['area_def'].lower() == 'area_def':
+                warea = area_def
+            else:
+                warea = pr.load_area('/home/z/anaconda3/envs/py38/lib/python3.8/site-packages/satpy/etc/areas.yaml', df[1]['area_def'])
             nat2tif(file = ntr, 
                     calibration = df[1]['calibration'],
-                    area_def = area_def,  
+                    area_def = warea,  
                     dataset = df[1]['dataset'], 
                     reader = df[1]['reader'], 
                     label = df[1]['label'], 

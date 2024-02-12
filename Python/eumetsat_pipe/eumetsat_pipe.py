@@ -123,8 +123,11 @@ def nat2tif(file, calibration, area_def, dataset, reader, label, dtype, radius,
     # this output plots an image with matplotlib
     elif out_type.lower() == 'plt':
         # add file extension to name
-        outname = os.path.join(outdir, outnamev + '.jpg')
+        outname = os.path.join(outdir, outnamev + 'mpl.png')
         
+        # preparing the data
+        data = np.array(values)
+                
         # save output
         plt.imshow(data)
         plt.gca().set(title=label, xlabel='Longitude', ylabel='Latitude')
@@ -168,12 +171,13 @@ elif isinstance(dt.datetime.strptime(df[1]['starttime'],'%d/%m/%Y %H:%M'), dt.da
     endt = dt.datetime.strptime(df[1]['endtime'],'%d/%m/%Y %H:%M')
 else:
     print('Not a valid time interval. Please, write RECENT or a start and finish dates in D/M/Y HH:MM format')
-    
+
+
 ### Module for extracting the files from eumetsat
 
 # Insert your personal key and secret into the single quotes
-consumer_key = 'YourAPIcredentials_key'
-consumer_secret = 'YourAPIcredentials_secret'
+consumer_key = 'd6afDNRGdpmCNGtfXlw62F2Shfga'
+consumer_secret = 'ofLnR0zJ6m3f53rWjgMgD9lt_RMa'
 
 credentials = (consumer_key, consumer_secret)
 
@@ -218,9 +222,13 @@ for product in products:
                 
             if df[1]['color'].lower() == 'mono':
                 # Here we call the nat2tif funciton for a High-Res monochromatic picture
+                if df[1]['area_def'].lower() == 'area_def':
+                    warea = area_def
+                else:
+                    warea = pr.load_area('/home/z/anaconda3/envs/py38/lib/python3.8/site-packages/satpy/etc/areas.yaml', df[1]['area_def'])                
                 nat2tif(file = ntr, 
                         calibration = df[1]['calibration'],
-                        area_def = area_def,  
+                        area_def = warea,  
                         dataset = df[1]['dataset'], 
                         reader = df[1]['reader'], 
                         label = df[1]['label'], 
