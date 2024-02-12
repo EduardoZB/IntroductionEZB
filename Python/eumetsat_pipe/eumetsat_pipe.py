@@ -177,8 +177,8 @@ else:
 ### Module for extracting the files from eumetsat
 
 # Insert your personal key and secret into the single quotes
-consumer_key = 'd6afDNRGdpmCNGtfXlw62F2Shfga'
-consumer_secret = 'ofLnR0zJ6m3f53rWjgMgD9lt_RMa'
+consumer_key = 'yourAPIcredentialKEY'
+consumer_secret = 'yourAPIcredentialSECRET'
 
 credentials = (consumer_key, consumer_secret)
 
@@ -241,7 +241,7 @@ for product in products:
                         bright = int(df[1]['brightness']),
                         contrast = int(df[1]['contrast']))
             elif df[1]['color'].lower() == 'rgb':
-                # Here we call the nat2rgb funciton for a natural color picture
+                # Here we call the nat2rgb funciton for a composite image
                 nat2rgb(file = ntr,
                         area = df[1]['area_def'],
                         dataset = df[1]['dataset'],
