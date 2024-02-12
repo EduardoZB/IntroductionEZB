@@ -204,7 +204,7 @@ for entry in entries:
                     strtime = strt,
                     endtime = endt)
         elif df[1]['color'].lower() == 'rgb':
-            # Here we call the nat2rgb funciton for a natural color picture
+            # Here we call the nat2rgb funciton for a composite picture
             nat2rgb(file = ntr,
                     area = df[1]['area_def'],
                     dataset = df[1]['dataset'],
